@@ -1,0 +1,182 @@
+<section class="seccion-menu" id="comidas">
+
+    <h2 class="titulo-menu">Nuestras comidas</h2>
+
+    <p class="parrafo-menu">Descubre los sabores que tenemos para ti.</p>
+
+    <!-- BÚSQUEDA DE COMIDAS -->
+
+    <div class="busqueda-comidas">
+
+        <label for="buscar-comida" class="etiqueta-comida">
+            Buscar comida por nombre:
+        </label>
+
+        <div class="grupo-busqueda">
+
+            <input
+                type="text"
+                id="buscar-comida"
+                name="nombre"
+                class="form-control campo-comida"
+                placeholder="Escribe el nombre de un plato"
+                [(ngModel)]="comida.nombre">
+
+            <button
+                type="button"
+                class="boton-busqueda"
+                (click)="buscarPorNombre()">
+                Buscar
+            </button>
+
+        </div>
+
+        <label for="buscar-ingrediente" class="etiqueta-comida">
+            Buscar por ingrediente:
+        </label>
+
+        <div class="grupo-busqueda">
+
+            <input
+                type="text"
+                id="buscar-ingrediente"
+                name="ingrediente"
+                class="form-control campo-comida"
+                placeholder="Escribe un ingrediente"
+                [(ngModel)]="comida.ingrediente">
+
+            <button
+                type="button"
+                class="boton-busqueda"
+                (click)="buscarPorIngrediente()">
+                Buscar
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- COMIDAS POR CATEGORÍAS -->
+
+    <h3 class="titulo-categorias">Comidas por categorías</h3>
+
+    <div class="container-fluid">
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4">
+
+            <div class="col" *ngFor="let categoria of categorias">
+
+                <div class="card tarjeta-categoria">
+
+                    <img
+                        [src]="categoria.strCategoryThumb"
+                        [alt]="categoria.strCategory"
+                        class="card-img-top">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            {{ categoria.strCategory }}
+                        </h5>
+
+                        <button
+                            type="button"
+                            class="btn boton-categoria"
+                            (click)="mostrarPorCategoria(categoria.strCategory)">
+
+                            Ver comidas
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- COMIDAS OBTENIDAS DE LA API -->
+
+    <h3 class="titulo-categorias">{{ titulo }}</h3>
+
+    <div class="contenedor-tarjetas">
+
+        <div class="tarjeta" *ngFor="let i of listaMostrar">
+
+            <img
+                [src]="i.strMealThumb"
+                [alt]="i.strMeal"
+                class="imagen-comida">
+
+            <h4 class="titulo-comida">
+                {{ i.strMeal }}
+            </h4>
+
+            <p class="parrafo-comida">
+                Precio: ${{ i.precio }}
+            </p>
+
+            <p class="parrafo-comida">
+                Ingredientes: {{ ingredientes(i) }}
+            </p>
+
+            <div class="d-flex justify-content-center align-items-center gap-2">
+
+                <button
+                    type="button"
+                    class="btn boton-categoria"
+                    (click)="menos(i)">
+                    -
+                </button>
+
+                <span>{{ i.cantidad }}</span>
+
+                <button
+                    type="button"
+                    class="btn boton-categoria"
+                    (click)="mas(i)">
+                    +
+                </button>
+
+            </div>
+
+            <button
+                type="button"
+                class="btn boton-categoria"
+                (click)="agregar(i)">
+                Agregar
+            </button>
+
+        </div>
+
+    </div>
+
+    <p *ngIf="listaMostrar.length === 0">
+        No hay comidas para mostrar.
+    </p>
+
+    <!-- VENTANA DE COMPRA EXITOSA -->
+
+    <div class="fondo-ventana" *ngIf="mostrarVentanaCompra">
+
+        <div class="ventana-compra">
+
+            <h2>¡Agregado exitosamente!</h2>
+
+            <p>{{ mensajeCompra }}</p>
+
+            <button
+                type="button"
+                class="boton-aceptar"
+                (click)="cerrarVentanaCompra()">
+                Aceptar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>

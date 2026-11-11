@@ -1,0 +1,173 @@
+/* SECCIÓN PRINCIPAL */
+
+.principal {
+    min-height: 500px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("/manila_restaurante.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: white;
+}
+
+.titulo-principal {
+    font-size: 46px;
+    color: #e5c078;
+    margin-bottom: 20px;
+}
+
+.parrafo-principal {
+    font-size: 19px;
+    max-width: 650px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.boton {
+    display: inline-block;
+    background-color: #c5a15b;
+    color: #172820;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 28px;
+    padding-right: 28px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.boton:hover {
+    background-color: #e0c78e;
+}
+
+/* HISTORIA DEL RESTAURANTE */
+
+.historia {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: #102720;
+    text-align: center;
+}
+
+.historia-contenido {
+    max-width: 850px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.subtitulo {
+    color: #c5a15b;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.titulo-historia {
+    color: #e5c078;
+    font-size: 32px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.parrafo-historia {
+    color: #f5f1e8;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+/* PRODUCTOS DESTACADOS */
+
+.destacados {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+    background-color: #f5f1e8;
+}
+
+.titulo-destacados {
+    color: #17352d;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.parrafo-destacados {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* CONTENEDOR DE LAS TARJETAS */
+
+.contenedor-tarjetas {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* TARJETAS DEL PLATO Y LA BEBIDA */
+
+.tarjeta {
+    flex: 1 1 300px;
+    max-width: 420px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.imagen-tarjeta {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-contenido {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.etiqueta {
+    color: #b18a42;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.titulo-tarjeta {
+    color: #17352d;
+    font-size: 22px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.parrafo-tarjeta {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+}

@@ -1,0 +1,61 @@
+/* ENCABEZADO DEL RESTAURANTE */
+
+.encabezado {
+    background-color: #102720;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* LOGO */
+
+.logo {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* TEXTO DEL ENCABEZADO */
+
+.texto-encabezado {
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: #d8b56d;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+
+.navegacion {
+    background-color: #102720;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-top: 1px solid #8e713b;
+    flex-wrap: wrap;
+}
+
+/* ENLACES DEL MENÚ */
+
+.enlace-navegacion {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.enlace-navegacion:hover {
+    color: #d8b56d;
+}

@@ -1,0 +1,70 @@
+<section class="seccion-juego">
+
+    <h2 class="titulo-juego">ENCUENTRA EL PLATO Y LA BEBIDA</h2>
+
+    <p class="descripcion-juego">
+        ¡Pon a prueba tu memoria y descubre los sabores de Manila!
+    </p>
+
+    <p class="mensaje-juego">{{ mensaje }}</p>
+
+    <!-- TABLERO DEL JUEGO -->
+
+    <div class="tablero-juego">
+
+        <!-- RECORRER LAS FILAS DE LA MATRIZ -->
+
+        <div class="fila-juego" *ngFor="let fila of tarjetas">
+
+            <!-- RECORRER LAS COLUMNAS DE CADA FILA -->
+
+            <div
+                class="tarjeta-juego"
+                *ngFor="let tarjeta of fila"
+                [class.volteada]="tarjeta.descubierta"
+                (click)="descubrirTarjeta(tarjeta)">
+
+                <div class="cara cara-frontal">
+                    ?
+                </div>
+
+                <div class="cara cara-trasera">
+
+                    <img
+                        *ngIf="tarjeta.encontrada"
+                        [src]="tarjeta.imagen"
+                        alt="Imagen encontrada">
+
+                    <span *ngIf="tarjeta.descubierta && !tarjeta.encontrada">
+                        ❌
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL DE VICTORIA -->
+
+    <div class="fondo-modal" *ngIf="juegoTerminado">
+
+        <div class="modal-victoria">
+
+            <h2>¡FELICIDADES!</h2>
+
+            <p>🎉 ¡GANASTE EL JUEGO! 🎉</p>
+
+            <p>Encontraste el plato y la bebida de Manila.</p>
+
+            <button (click)="reiniciarRonda()">
+                JUGAR NUEVAMENTE
+            </button>
+
+        </div>
+
+    </div>
+
+</section>

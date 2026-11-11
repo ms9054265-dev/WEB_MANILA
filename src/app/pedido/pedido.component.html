@@ -1,0 +1,129 @@
+<section class="seccion-pedido" id="pedido">
+
+    <h2 class="titulo-pedido">Realiza tu pedido</h2>
+
+    <p class="parrafo-pedido">
+        Elige tus productos favoritos y disfruta de Manila.
+    </p>
+
+    <form class="formulario-pedido" novalidate>
+
+        <h3 class="titulo-formulario">Datos del cliente</h3>
+
+        <label for="nombre-cliente" class="etiqueta-pedido">
+            Nombre completo:
+        </label>
+
+        <input
+            type="text"
+            id="nombre-cliente"
+            name="nombre"
+            class="campo-pedido"
+            placeholder="Escribe tu nombre completo"
+            [(ngModel)]="pedido.nombre"
+            (ngModelChange)="guardarDatosCliente()"
+            required>
+
+        <label for="celular-cliente" class="etiqueta-pedido">
+            Celular:
+        </label>
+
+        <input
+            type="tel"
+            id="celular-cliente"
+            name="celular"
+            class="campo-pedido"
+            placeholder="Escribe tu número de celular"
+            [(ngModel)]="pedido.telefono"
+            (ngModelChange)="guardarDatosCliente()"
+            required>
+
+        <label for="direccion-cliente" class="etiqueta-pedido">
+            Dirección:
+        </label>
+
+        <input
+            type="text"
+            id="direccion-cliente"
+            name="direccion"
+            class="campo-pedido"
+            placeholder="Escribe la dirección de entrega"
+            [(ngModel)]="pedido.direccion"
+            (ngModelChange)="guardarDatosCliente()"
+            required>
+
+        <h3 class="titulo-formulario">Productos seleccionados</h3>
+
+        <div class="productos-pedido">
+
+            <p *ngIf="productosSeleccionados.length === 0">
+                Aún no has seleccionado productos.
+            </p>
+
+            <div
+                *ngFor="let producto of productosSeleccionados"
+                class="producto-seleccionado">
+
+                <img
+                    [src]="producto.strMealThumb || producto.strDrinkThumb"
+                    [alt]="producto.strMeal || producto.strDrink">
+
+                <div>
+
+                    <h4>
+                        {{ producto.strMeal || producto.strDrink }}
+                    </h4>
+
+                    <p>Precio: ${{ producto.precio }}</p>
+
+                    <p>
+                        Subtotal: ${{ producto.precio * producto.cantidad }}
+                    </p>
+
+                    <div class="controles-cantidad">
+
+                        <button
+                            type="button"
+                            (click)="menos(producto)">
+                            -
+                        </button>
+
+                        <span>{{ producto.cantidad }}</span>
+
+                        <button
+                            type="button"
+                            (click)="mas(producto)">
+                            +
+                        </button>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="boton-eliminar"
+                        (click)="eliminar(producto)">
+                        Eliminar
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h3 class="titulo-formulario">Total a pagar</h3>
+
+        <p class="total-pedido">${{ total }}</p>
+
+        <button
+            type="button"
+            class="boton-pedido"
+            (click)="generarPDF()">
+
+            Realizar pedido y descargar PDF
+
+        </button>
+
+    </form>
+
+</section>

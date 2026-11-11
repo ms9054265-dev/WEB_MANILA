@@ -1,0 +1,213 @@
+<section class="seccion-menu" id="bebidas">
+
+    <h2 class="titulo-menu">Nuestras bebidas</h2>
+
+    <p class="parrafo-menu">Descubre las bebidas que tenemos para ti.</p>
+
+    <!-- BÚSQUEDA DE BEBIDAS -->
+
+    <div class="busqueda-bebidas">
+
+        <label for="buscar-bebida" class="etiqueta-bebida">
+            Buscar bebida por nombre:
+        </label>
+
+        <div class="grupo-busqueda">
+
+            <input
+                type="text"
+                id="buscar-bebida"
+                name="nombre"
+                class="form-control campo-bebida"
+                placeholder="Escribe el nombre de una bebida"
+                [(ngModel)]="bebida.nombre">
+
+            <button
+                type="button"
+                class="boton-busqueda"
+                (click)="buscarPorNombre()">
+                Buscar
+            </button>
+
+        </div>
+
+        <label for="buscar-ingrediente" class="etiqueta-bebida">
+            Buscar por ingrediente:
+        </label>
+
+        <div class="grupo-busqueda">
+
+            <input
+                type="text"
+                id="buscar-ingrediente"
+                name="ingrediente"
+                class="form-control campo-bebida"
+                placeholder="Escribe un ingrediente"
+                [(ngModel)]="bebida.ingrediente">
+
+            <button
+                type="button"
+                class="boton-busqueda"
+                (click)="buscarPorIngrediente()">
+                Buscar
+            </button>
+
+        </div>
+
+        <label for="tipo-bebida" class="etiqueta-bebida">
+            Buscar por tipo de bebida:
+        </label>
+
+        <select
+            id="tipo-bebida"
+            name="tipo"
+            class="form-select campo-bebida"
+            [(ngModel)]="bebida.tipo"
+            (change)="mostrarPorAlcohol(bebida.tipo.toString())">
+
+            <option value="">Selecciona un tipo de bebida</option>
+            <option value="Alcoholic">Con alcohol</option>
+            <option value="Non_Alcoholic">Sin alcohol</option>
+
+        </select>
+
+    </div>
+
+    <!-- CATEGORÍAS DE BEBIDAS -->
+
+    <h3 class="titulo-categorias">Bebidas por categorías</h3>
+
+    <div class="container-fluid">
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4">
+
+            <div class="col" *ngFor="let categoria of categorias">
+
+                <div class="card tarjeta-categoria">
+
+                    <img
+                        [src]="categoria.imagen"
+                        [alt]="categoria.strCategory"
+                        class="card-img-top">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            {{ categoria.strCategory }}
+                        </h5>
+
+                        <button
+                            type="button"
+                            class="btn boton-categoria"
+                            (click)="mostrarPorCategoria(categoria.strCategory)">
+
+                            Ver bebidas
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BEBIDAS OBTENIDAS DE LA API -->
+
+    <h3 class="titulo-categorias">{{ titulo }}</h3>
+
+    <div class="container-fluid">
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4">
+
+            <div class="col" *ngFor="let i of listaMostrar">
+
+                <div class="card tarjeta-categoria">
+
+                    <img
+                        [src]="i.strDrinkThumb"
+                        [alt]="i.strDrink"
+                        class="card-img-top imagen-bebida">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            {{ i.strDrink }}
+                        </h5>
+
+                        <p class="parrafo-bebida">
+                            Precio: ${{ i.precio }}
+                        </p>
+
+                        <p class="parrafo-bebida">
+                            Ingredientes: {{ ingredientes(i) }}
+                        </p>
+
+                        <div class="d-flex justify-content-center align-items-center gap-2">
+
+                            <button
+                                type="button"
+                                class="btn boton-categoria"
+                                (click)="menos(i)">
+                                -
+                            </button>
+
+                            <span>{{ i.cantidad }}</span>
+
+                            <button
+                                type="button"
+                                class="btn boton-categoria"
+                                (click)="mas(i)">
+                                +
+                            </button>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn boton-categoria"
+                            (click)="Agregar(i)">
+                            Agregar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <p *ngIf="listaMostrar.length === 0">
+        No hay bebidas para mostrar.
+    </p>
+
+    <!-- VENTANA DE COMPRA EXITOSA -->
+
+    <div class="fondo-ventana" *ngIf="mostrarVentanaCompra">
+
+        <div class="ventana-compra">
+
+            <h2>¡Agregado exitosamente!</h2>
+
+            <p>{{ mensajeCompra }}</p>
+
+            <button
+                type="button"
+                class="boton-aceptar"
+                (click)="cerrarVentanaCompra()">
+                Aceptar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,208 @@
+/* SECCIÓN DE COMIDAS */
+
+.seccion-menu {
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #f5f1e8;
+    text-align: center;
+}
+
+.titulo-menu {
+    color: #17352d;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.parrafo-menu {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* CAMPOS DE BÚSQUEDA */
+
+.busqueda-comidas {
+    max-width: 500px;
+    margin-top: 0;
+    margin-bottom: 35px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.etiqueta-comida {
+    color: #17352d;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.campo-comida {
+    width: 100%;
+    max-width: 500px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border: 1px solid #c5a15b;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+}
+
+.campo-comida:focus {
+    border-color: #17352d;
+}
+
+/* TÍTULO DE CATEGORÍAS */
+
+.titulo-categorias {
+    color: #17352d;
+    margin-bottom: 20px;
+}
+
+/* CONTENEDOR DE TARJETAS */
+
+.contenedor-tarjetas {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+/* TARJETAS INDIVIDUALES */
+
+.tarjeta {
+    background-color: white;
+    flex: 1 1 240px;
+    max-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.imagen-comida {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.titulo-comida {
+    color: #17352d;
+    font-size: 20px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.parrafo-comida {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    padding-top: 0;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.grupo-busqueda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.boton-busqueda {
+    width: 25%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #17352d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-categoria {
+    border: 2px solid #c5a15b;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* VENTANA EMERGENTE DE COMPRA */
+
+.fondo-ventana {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+/* CONTENIDO DE LA VENTANA */
+
+.ventana-compra {
+    width: 100%;
+    max-width: 430px;
+    background-color: #f5f1e8;
+    border: 2px solid #c5a15b;
+    border-radius: 18px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* TÍTULO */
+
+.ventana-compra h2 {
+    color: #17352d;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* MENSAJE */
+
+.ventana-compra p {
+    color: #444;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* BOTÓN ACEPTAR */
+
+.boton-aceptar {
+    background-color: #17352d;
+    color: #f5f1e8;
+    border: 2px solid #c5a15b;
+    border-radius: 25px;
+    padding: 11px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.boton-aceptar:hover {
+    background-color: #c5a15b;
+    color: #17352d;
+}
