@@ -34,6 +34,8 @@
     justify-content: center;
     align-items: center;
     margin: 30px auto;
+    max-width: 100%;
+    padding: 0 10px;
 }
 
 /* FILAS DE LA MATRIZ */
@@ -42,6 +44,7 @@
     display: flex;
     justify-content: center;
     gap: 15px;
+    max-width: 100%;
 }
 
 /* TARJETAS */
@@ -52,6 +55,7 @@
     position: relative;
     perspective: 1000px;
     cursor: pointer;
+    flex-shrink: 1;
 }
 
 .cara {
@@ -118,6 +122,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 15px;
 }
 
 /* VENTANA DE VICTORIA */
@@ -129,6 +134,7 @@
     padding: 35px;
     text-align: center;
     width: 350px;
+    max-width: 100%;
 }
 
 /* TÍTULO */
@@ -162,4 +168,98 @@
 .modal-victoria button:hover {
     background-color: #c5a15b;
     color: #17352d;
+}
+
+
+/* TABLET */
+
+@media (max-width: 768px) {
+
+    .tarjeta-juego {
+        width: 100px;
+        height: 100px;
+    }
+
+    .fila-juego {
+        gap: 10px;
+    }
+
+    .tablero-juego {
+        gap: 10px;
+    }
+
+    .cara-frontal {
+        font-size: 30px;
+    }
+
+    .cara-trasera span {
+        font-size: 30px;
+    }
+
+}
+
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+
+    .seccion-juego {
+        padding: 25px 8px;
+    }
+
+    .titulo-juego {
+        font-size: 23px;
+    }
+
+    .descripcion-juego {
+        font-size: 14px;
+    }
+
+    .mensaje-juego {
+        font-size: 15px;
+    }
+
+    .tablero-juego {
+        gap: 8px;
+        padding: 0;
+    }
+
+    .fila-juego {
+        gap: 6px;
+    }
+
+    .tarjeta-juego {
+        width: 75px;
+        height: 75px;
+    }
+
+    .cara {
+        border-width: 2px;
+        border-radius: 9px;
+    }
+
+    .cara-frontal {
+        font-size: 25px;
+    }
+
+    .cara-trasera span {
+        font-size: 25px;
+    }
+
+    .modal-victoria {
+        padding: 25px 15px;
+    }
+
+    .modal-victoria h2 {
+        font-size: 23px;
+    }
+
+    .modal-victoria p {
+        font-size: 15px;
+    }
+
+    .modal-victoria button {
+        padding: 10px 15px;
+    }
+
 }
